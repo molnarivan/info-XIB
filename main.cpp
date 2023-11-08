@@ -1,40 +1,37 @@
 #include <iostream>
 #include <fstream>
+
 using namespace std;
 
 int main()
 {
-    int N, max=0, atlag=0, cr=0, final=0;
-    int v[1000];
-    ifstream be ("input.txt");
-    ofstream ki ("oszto.out");
-   be >> N;
-    for(int i=0; i<N; i++){
-        be >> v[i];
-        if (v[i] > max){
-            max=v[i];
+    int v[100][100], N, s1=0, s2=0,sor,oszlop;
+    ifstream in("input.txt");
+    ofstream out("lnko.out");
+    in>> N;
+    for(sor=0; sor<N; sor++){
+        for(oszlop=0; oszlop<N; oszlop++){
+            in>>v[sor][oszlop];
+            if(sor>oszlop && sor+oszlop<N-1){
+                s1=s1+v[sor][oszlop];
+            }
+            if(sor<oszlop && sor+oszlop>N-1){
+                s2=s2+v[sor][oszlop];
+            }
         }
-        atlag=atlag + v[i];
+    }
+    while(s1!=s2){
+        if(s1>s2){
+            s1=s1-s2;
+        }
+        else{
+            s2=s2-s1;
+        }
+
     }
 
-
-    atlag=atlag/N;
-    int temp = max;
-    while (temp!=0){
-        temp=temp/10;
-        cr++;
-    }
-    final= atlag;
-    for(int i=0; i<cr; i++){
-        final=final*10;
-    }
-    final=final+max;
-    int oszto=final/2;
-    while (final%oszto!=0){
-        oszto--;
-    }
-    ki<< oszto;
-
+    out<< "lnko="<< s1;
 
     return 0;
 }
+
