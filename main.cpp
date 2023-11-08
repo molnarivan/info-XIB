@@ -4,30 +4,37 @@ using namespace std;
 
 int main()
 {
-   int n, tmp, max=0, fib1=0, fib2=1,curr=0;
-   ifstream cin ("input.txt");
-   ofstream cout ("fib.out");
-   cin>>n;
-   while(n!=0){
-    tmp=n%10;
-    n=n/10;
-    if(tmp>max){
-        max=tmp;
+    int N, max=0, atlag=0, cr=0, final=0;
+    int v[1000];
+    ifstream be ("input.txt");
+    ofstream ki ("oszto.out");
+   be >> N;
+    for(int i=0; i<N; i++){
+        be >> v[i];
+        if (v[i] > max){
+            max=v[i];
+        }
+        atlag=atlag + v[i];
     }
-   }
-   if(max==0){
-    cout<< fib1;
-   }
-   else if(max==1){
-    cout<< fib2;
-   }
-   else{
-    for(int i=2; i<=max; i++){
-        curr=fib1+fib2;
-        fib1=fib2;
-        fib2=curr;
+
+
+    atlag=atlag/N;
+    int temp = max;
+    while (temp!=0){
+        temp=temp/10;
+        cr++;
     }
-    cout<<curr;
-   }
+    final= atlag;
+    for(int i=0; i<cr; i++){
+        final=final*10;
+    }
+    final=final+max;
+    int oszto=final/2;
+    while (final%oszto!=0){
+        oszto--;
+    }
+    ki<< oszto;
+
+
     return 0;
 }
