@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<title>BMW bemutato</title>
+</head>
+<body>
+    <h1>BMW BEMUTATÓ</h1>
+
+    <div class="btn1-group">
+        <button>Molnar Valentin</button>
+        
+    </div> 
+
+
+</body>
+</html>
+
+
+
+body{
+    background-image: url("background.jpg");
+    background-size:115%;
+    background-repeat: no-repeat;
+}
+
+h1{
+    text-align: center;
+    font-size: 500%;
+    font-style: oblique;
+    
+}
+
+.btn1-group button {
+background-color: #4a5255;
+  border: 5px solid #000000;
+  border-radius:20px;
+  color: rgb(192, 177, 47);
+  padding: 50px 70px;
+  text-align: center;
+  font-size: 30px;
+  cursor:pointer;
+  transition: 0.3s; 
+  display: block;
+  position: relative;
+  left:15%;
+  margin-top: 100px;
+  
+  }
+  
+  .btn1-group button1:not(:last-child) {
+    border-bottom: none; 
+  }
+  
+  
+  .btn1-group button:hover {
+    background-color: #396d6a;
+  color: rgb(194, 177, 31);
+  }
